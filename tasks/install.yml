@@ -87,6 +87,8 @@
     path: "{{ item }}"
     owner: "{{ vault_user }}"
     group: "{{ vault_group }}"
+    state: directory
+    mode: '0755'
   loop:
     - "{{ vault_bin_path }}"
     - "{{ vault_config_path }}"
