@@ -82,6 +82,17 @@
   tags: installation
   delegate_to: 127.0.0.1
 
+- name: Create Vault Dirs
+  file:
+    path: "{{ item }}"
+    owner: "{{ vault_user }}"
+    group: "{{ vault_group }}"
+  loop:
+    - "{{ vault_bin_path }}"
+    - "{{ vault_config_path }}"
+    - "{{ vault_plugin_path }}"
+    - "{{ vault_data_path }}" 
+
 - name: Install Vault
   become: true
   copy:
