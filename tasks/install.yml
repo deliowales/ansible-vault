@@ -107,9 +107,9 @@
   tags: installation
 
 - name: Add bin dir to path
-   copy:
-     dest: /etc/profile.d/vault-path.sh
-     content: 'PATH=$PATH:{{ vault_bin_path }}'
+  copy:
+    dest: /etc/profile.d/vault-path.sh
+    content: 'PATH=$PATH:{{ vault_bin_path }}'
 
 - name: Cleanup (local)
   file:
