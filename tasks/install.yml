@@ -93,7 +93,8 @@
     - "{{ vault_bin_path }}"
     - "{{ vault_config_path }}"
     - "{{ vault_plugin_path }}"
-    - "{{ vault_data_path }}" 
+    - "{{ vault_data_path }}"
+  become: true
 
 - name: Install Vault
   become: true
@@ -110,6 +111,7 @@
   copy:
     dest: /etc/profile.d/vault-path.sh
     content: 'PATH=$PATH:{{ vault_bin_path }}'
+  become: true
 
 - name: Cleanup (local)
   file:
