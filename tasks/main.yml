@@ -233,6 +233,7 @@
     create: true
   when:
     - ansible_os_family != 'Windows'
+  become: true
 
 - name: Insert CA cert export in dotfile
   lineinfile:
@@ -242,6 +243,7 @@
   when:
     - not vault_tls_disable | bool
     - ansible_os_family != 'Windows'
+  become: true
 
 # This should succeed regardless of seal state
 - name: Vault API reachable?
